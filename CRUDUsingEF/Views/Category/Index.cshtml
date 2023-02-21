@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CRUDUsingEF.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Category List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CName)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.CId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.CId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
